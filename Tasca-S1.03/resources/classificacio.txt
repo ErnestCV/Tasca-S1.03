@@ -1,0 +1,3 @@
+Usuari: Joan - Puntuació: 2
+Usuari: Jordi - Puntuació: 2
+Usuari: Ernest - Puntuació: 10
