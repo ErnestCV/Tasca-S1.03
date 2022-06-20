@@ -102,7 +102,7 @@ public class Arxiu {
         }
 
         try {
-            gestio.introduirPersona(new Persona(nom, cognom, dni));
+            gestio.introduirPersonaCSV(new Persona(nom, cognom, dni));
         } catch (IOException e) {
             e.printStackTrace();
         }

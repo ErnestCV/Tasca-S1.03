@@ -1,14 +1,12 @@
 package n3ex1;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class GestioFitxer {
 
-    public void introduirPersona(Persona persona) throws IOException {
+    public void introduirPersonaCSV(Persona persona) throws IOException {
 
         String fileName = "resources/persones.csv";
 
