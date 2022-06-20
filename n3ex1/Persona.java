@@ -2,9 +2,9 @@ package n3ex1;
 
 public class Persona {
 
-    private String nom;
-    private String cognom;
-    private String DNI;
+    private final String nom;
+    private final String cognom;
+    private final String DNI;
 
     public Persona(String nom, String cognom, String DNI) {
         this.nom = nom;
@@ -23,4 +23,16 @@ public class Persona {
     public String getDNI() {
         return DNI;
     }
+
+
+//    @Override
+//    public String toString() {
+//        return "Persona{" +
+//                "nom='" + nom + '\'' +
+//                ", cognom='" + cognom + '\'' +
+//                ", DNI='" + DNI + '\'' +
+//                '}';
+//    }
+
 }
+

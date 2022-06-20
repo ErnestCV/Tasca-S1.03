@@ -1,7 +1,9 @@
 package n3ex1;
 
+import n3ex1.Comparadors.ComparadorNomAZ;
+
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Arxiu {
 
@@ -12,7 +14,7 @@ public class Arxiu {
         gestio = new GestioFitxer();
     }
 
-    public void iniciar(){
+    public void iniciar() {
         boolean exit = false;
 
         do {
@@ -20,8 +22,8 @@ public class Arxiu {
                 //Introduir persona
                 case 1 -> introduirPersona();
 
-//                //Mostrar les butaques reservades per una persona
-//                case 2 -> mostrarButaquesPersona();
+                //Mostrar les persones ordenades per nom (A-Z)
+                case 2 -> mostrarNomAZ();
 //
 //                //Reservar una butaca
 //                case 3 -> reservarButaca();
@@ -68,7 +70,7 @@ public class Arxiu {
         return select;
     }
 
-    public void introduirPersona(){
+    private void introduirPersona() {
 
         System.out.println("Introdueix el nom:");
         String nom = scanner.next();
@@ -79,8 +81,30 @@ public class Arxiu {
 
         try {
             gestio.introduirPersona(new Persona(nom, cognom, dni));
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    private void mostrarNomAZ() {
+
+        List<Persona> llista = gestio.getDatafromCSV();
+
+        ComparadorNomAZ nomAZ = new ComparadorNomAZ();
+        Collections.sort(llista, nomAZ);
+
+        printData(llista);
+
+    }
+
+    private void printData(List<Persona> llista){
+
+        System.out.printf("%-10s %-20s %-2s %n", "Nom", "Cognom", "DNI");
+        System.out.printf("%-10s %-20s %-2s %n", "________", "_________", "_________");
+
+        for (Persona p : llista) {
+            System.out.printf("%-10s %-20s %-2s %n", p.getNom(), p.getCognom(), p.getDNI());
         }
 
     }
